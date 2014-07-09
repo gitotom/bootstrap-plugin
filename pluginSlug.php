@@ -69,6 +69,8 @@ class MBC_{UCFIRST_PLUGIN_SLUG_NO_SPACE}{
 				// Loader
 				add_action( 'plugins_loaded' , array( $this , 'plugin_load' ) );
 
+				
+
 
 
 		} // __construct

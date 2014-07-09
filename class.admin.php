@@ -34,7 +34,7 @@ class MBC_{UCFIRST_PLUGIN_SLUG_NO_SPACE}_Backend {
          * @version {PLUGIN_VERSION}
     	 * @var string
     	 */
-		protected $_setting_page_slug = 'boostrap-plugin';
+		protected $_setting_page_slug = 'page-{PLUGIN_SLUG}';
 
 
 		/**
@@ -55,9 +55,11 @@ class MBC_{UCFIRST_PLUGIN_SLUG_NO_SPACE}_Backend {
 		public function hooks()
 		{
 			
-			add_action( 'admin_menu', array( $this, 'add_plugin_menu') );
+			add_action( 'admin_menu', array( $this, 'add_plugin_menu' ) );
 			add_action( 'admin_init', array( $this, 'options_init') );
 			add_action( 'load-settings_page_'.$this->_setting_page_slug, array( $this, 'plugin_admin_boostrap' ) );
+
+			add_filter( 'plugin_action_links_{PLUGIN_SLUG}/{PLUGIN_SLUG}.php', array($this,'action_links'), 10, 2 );
 		
 		} // hooks
 		
@@ -156,6 +158,14 @@ class MBC_{UCFIRST_PLUGIN_SLUG_NO_SPACE}_Backend {
 			return $options;
 		
 		} // Options validate
+
+
+		public function action_links( $links, $file )
+		{
+			array_unshift( $links, '<a href="' . admin_url( 'admin.php?page=' . $this->_setting_page_slug ) . '">' . __( 'Go to {PLUGIN_NAME}', '{PLUGIN_SLUG}' ) . '</a>' );
+			
+			return $links;
+		}
 
 	
 	} // MBC_{UCFIRST_PLUGIN_SLUG_NO_SPACE}_Backend
