@@ -36,9 +36,10 @@ class MBC_{UCFIRST_PLUGIN_SLUG_NO_SPACE}_Backend {
     	 */
 		protected $_setting_page_slug = 'boostrap-plugin';
 
+
 		/**
 		 * Construct
-		 * 
+		 *  
 		 * @since {SINCE_VERSION}
          * @version {PLUGIN_VERSION}
 		 * @access public
@@ -46,7 +47,7 @@ class MBC_{UCFIRST_PLUGIN_SLUG_NO_SPACE}_Backend {
 		public function __construct(){
 
 			$this->plugin_options = MBC_{UCFIRST_PLUGIN_SLUG_NO_SPACE}::get_plugin_options();
-			$this->_setting_page_name = __('Page name');
+			$this->_setting_page_name = __('Page name','{PLUGIN_SLUG}');
 			$this->hooks();
 
 		}
@@ -113,7 +114,7 @@ class MBC_{UCFIRST_PLUGIN_SLUG_NO_SPACE}_Backend {
 		public function options_panel()
 		{ 
 			if ( ! current_user_can( 'manage_options' ) )
-			wp_die( __( 'You do not have sufficient permissions to manage options for this site.' ) );
+			wp_die( __( 'You do not have sufficient permissions to manage options for this site.','{PLUGIN_SLUG}' ) );
 
 		?>
 			

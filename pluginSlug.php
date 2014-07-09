@@ -33,7 +33,7 @@ class MBC_{UCFIRST_PLUGIN_SLUG_NO_SPACE}{
          * @version {PLUGIN_VERSION}
     	 * @var string
     	 */
-		public static $options_group = 'mbc-{UCFIRST_PLUGIN_SLUG_NO_SPACE}-pb_group';
+		public static $options_group = 'mbc-{PLUGIN_SLUG_NO_SPACE}-pb_group';
 
 
 		/**
